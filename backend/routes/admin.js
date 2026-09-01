@@ -13,11 +13,7 @@ const zodadminschema = z.object({
   email: z.string().email(),
   password: z
     .string()
-    .min(6)
-    .regex(
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])/,
-      "Password must include lowercase, uppercase, and a special character"
-    ),
+    .min(6),
   firstName: z.string().min(3).max(20),
   lastName: z.string().min(3).max(20),
 });

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import { BookOpen, Phone, X } from 'lucide-react';
+import { BookOpen, Phone, X, Loader2 } from 'lucide-react';
 import toast from 'react-hot-toast';
 import CourseSkeleton from '../components/CourseSkeleton';
 import { API_URL } from '../config';
@@ -97,7 +97,9 @@ export default function Home() {
           localStorage.removeItem(key);
         }
       });
-    } catch (_) {}
+    } catch (e) {
+      console.error("Failed to clear razorpay cache", e);
+    }
 
     const options = {
       key: data.keyId,
@@ -268,12 +270,13 @@ export default function Home() {
                     <p className="course-description">{course.description}</p>
                   </div>
                   <div className="course-footer flex items-center justify-between">
-                    <span className="course-price">${course.price}</span>
+                    <span className="course-price">₹{course.price}</span>
                     <button
-                      className="btn-primary"
+                      className="btn-primary flex items-center justify-center gap-2"
                       onClick={() => handleEnroll(course._id)}
                       disabled={purchasing === course._id}
                     >
+                      {purchasing === course._id && <Loader2 size={16} className="spinner" />}
                       {purchasing === course._id ? 'Enrolling...' : 'Enroll Now'}
                     </button>
                   </div>

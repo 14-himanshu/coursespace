@@ -19,7 +19,7 @@ export default function Navbar() {
       <div className="container flex items-center justify-between">
         <div className="nav-brand">
           <Link to="/" className="nav-logo flex items-center gap-2">
-            <img src="/logo.png" alt="CourseSpace Logo" style={{ height: '28px', width: '28px', objectFit: 'contain' }} />
+            <img src="/logo.png" alt="CourseSpace Logo" style={{ height: '28px', width: '28px', objectFit: 'contain', filter: theme === 'light' ? 'invert(1)' : 'none' }} />
             <span>CourseSpace</span>
           </Link>
         </div>

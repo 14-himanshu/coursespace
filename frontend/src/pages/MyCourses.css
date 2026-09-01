@@ -1,7 +1,61 @@
 .my-courses-header {
-  margin-bottom: 3rem;
-  padding-bottom: 1rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--border-color);
+}
+
+.course-count-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent-color);
+}
+
+/* Clickable card - cursor pointer, better hover */
+.clickable-card {
+  cursor: pointer;
+}
+
+.clickable-card:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* Play overlay on image hover */
+.course-img-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.play-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.clickable-card:hover .play-overlay {
+  opacity: 1;
+}
+
+.clickable-card:hover .course-img {
+  transform: scale(1.04);
+  transition: transform 0.3s ease;
+}
+
+/* Continue Learning button variant */
+.btn-continue {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
 }
 
 .empty-state {
