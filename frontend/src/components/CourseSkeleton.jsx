@@ -1,4 +1,3 @@
-import React from 'react';
 import './CourseSkeleton.css';
 
 export default function CourseSkeleton() {
